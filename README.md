@@ -10,8 +10,8 @@ $ brew install chruby
   # source /usr/local/opt/chruby/share/chruby/auto.sh
 $ brew install ruby-install
 $ ruby-install ruby x.y.z #check version against the readme & make a cup of coffee...
-$ brew install postgres
-$ brew services start postgresql #check if postgreaql-contrib was also installed
+$ brew install postgres@14
+$ brew services start postgresql@14 
 $ cd to rails_webapp_project/
 $ chruby x.y.z #make sure to check project
 $ which ruby  #should NOT be /usr/bin/ruby
