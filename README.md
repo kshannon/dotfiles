@@ -11,11 +11,15 @@ $ brew install chruby
 $ brew install ruby-install
 $ ruby-install ruby x.y.z #check version against the readme & make a cup of coffee...
 $ brew install postgres@14
-$ brew services start postgresql@14 
+$ brew services start postgresql@14
+$ brew install node@18
+  # export PATH="/opt/homebrew/opt/node@18/bin:$PATH" #add to PATH, because in homebrew the node install is only a keg
 $ cd to rails_webapp_project/
 $ chruby x.y.z #make sure to check project
 $ which ruby  #should NOT be /usr/bin/ruby
 $ gem install bundler
 $ gem install foreman
 $ brew install yarn
+  # set your .env file
+  # follow further project specific steps, e.g. initializing the DB etc.
 ```
