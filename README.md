@@ -1,25 +1,32 @@
-# dotfiles
-my zsh, starship, git, etc config files. Also instructions for setting up my compy. good stuff.
+# Dotfiles
 
-## Setting Up Ruby & Rails on MacOS
-Make sure you have xcode w/ command line tools & homebrew
+This repository contains my dotfiles, which are configuration files for various programs. To easily manage these dotfiles, I use GNU Stow.
+
+## Installation
+
+To install GNU Stow, follow these steps:
+
+1. Open a terminal.
+2. Run the following command to install GNU Stow:
+
+    ```bash
+    # For Debian-based systems (e.g., Ubuntu)
+    sudo apt-get install stow
+
+    # For Red Hat-based systems (e.g., Fedora)
+    sudo dnf install stow
+
+    # For macOS (using Homebrew)
+    brew install stow
+    ```
+
+## Usage
+
+Once GNU Stow is installed, you can symlink the dotfiles to your home directory using the following command:
+
+```bash
+cd ~/dotfiles
+stow .
 ```
-$ brew install chruby
-  # Add the following to the ~/.zshrc file:
-  # source /usr/local/opt/chruby/share/chruby/chruby.sh
-  # source /usr/local/opt/chruby/share/chruby/auto.sh
-$ brew install ruby-install
-$ ruby-install ruby x.y.z #check version against the readme & make a cup of coffee...
-$ brew install postgres@14
-$ brew services start postgresql@14
-$ brew install node@18
-  # export PATH="/opt/homebrew/opt/node@18/bin:$PATH" #add to PATH, because in homebrew the node install is only a keg
-$ cd to rails_webapp_project/
-$ chruby x.y.z #make sure to check project
-$ which ruby  #should NOT be /usr/bin/ruby
-$ gem install bundler
-$ gem install foreman
-$ brew install yarn
-  # set your .env file
-  # follow further project specific steps, e.g. initializing the DB etc.
-```
+
+This will create symlinks for all the dotfiles in the repository. Thus, you can easily version control your dotfiles using Git. Credit goes to [Dreams of Anatomy](https://youtu.be/y6XCebnB9gs?si=kP2rrHu6xishHkkF)
