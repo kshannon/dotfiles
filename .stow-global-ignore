@@ -1,0 +1,15 @@
+# Don't stow these files/directories
+\.git
+\.gitignore
+\.stow-.*
+^/README.*
+^/LICENSE.*
+^/Makefile.*
+^/install\.sh
+^/bootstrap\.sh
+\.DS_Store
+^/docs
+^/wiki
+^/images
+^/screenshots
+^/scripts
