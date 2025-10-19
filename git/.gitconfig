@@ -1,0 +1,34 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Kyle Shannon
+  email = kyle@kmshannon.com
+       
+[core]
+    editor = vim
+    # Exclude macOS and common files
+    excludesfile = ~/.gitignore_global
+    autocrlf = input  # Linux/macOS
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[alias]
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    plog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+    ui = auto
+
+[diff]
+    tool = vimdiff
+
+[merge]
+    tool = vimdiff
