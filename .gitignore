@@ -31,3 +31,10 @@
 *.local
 *.private
 .env.local
+
+# ZSH specific files
+.zsh_history
+.zsh_sessions/
+.zcompdump*
+.zlogin
+.zlogout
