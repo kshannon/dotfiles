@@ -38,3 +38,6 @@
 .zcompdump*
 .zlogin
 .zlogout
+
+# Pixi environments (not configs)
+**/.pixi/

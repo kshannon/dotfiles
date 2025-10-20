@@ -134,6 +134,9 @@ if command -v starship &> /dev/null; then
     eval "$(starship init zsh)"
 fi
 
+# Pixi completion
+eval "$(pixi completion --shell zsh)"
+
 #############################
 # PROJECT-SPECIFIC EXPORTS
 #############################
@@ -143,4 +146,12 @@ fi
 
 # Project-specific PATHs here
 # export PATH="$PATH:/your/custom/path"
+
+#############################
+# PIXI HELPERS
+#############################
+
+alias py='pixi run --manifest-path ~/pixi-envs/base/pixi.toml python'
+alias ipy='pixi run --manifest-path ~/pixi-envs/base/pixi.toml ipython'
+alias jup='pixi run --manifest-path ~/pixi-envs/base/pixi.toml jupyter lab'
 
