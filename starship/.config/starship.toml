@@ -1,0 +1,79 @@
+# Starship prompt configuration
+# Docs: https://starship.rs/config/
+
+# Timeout for commands (milliseconds)
+command_timeout = 500
+
+# Format
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$ruby\
+$nodejs\
+$rust\
+$golang\
+$cmd_duration\
+$line_break\
+$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+style = "bold yellow"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[python]
+symbol = " "
+style = "yellow"
+
+[ruby]
+symbol = " "
+style = "red"
+
+[nodejs]
+symbol = " "
+style = "green"
+
+[rust]
+symbol = " "
+style = "red"
+
+[golang]
+symbol = " "
+style = "cyan"
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold yellow)"
+
+[username]
+show_always = false
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+format = "on [$hostname]($style) "
