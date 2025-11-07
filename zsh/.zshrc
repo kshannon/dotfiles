@@ -137,9 +137,13 @@ fi
 # Pixi completion
 eval "$(pixi completion --shell zsh)"
 
-#############################
-# PROJECT-SPECIFIC EXPORTS
-#############################
+###############################
+# PROJECT-SPECIFIC ENV EXPORTS
+###############################
+
+# Claude Code
+export DISABLE_AUTOUPDATER=1
+export EDITOR='code'
 
 # Rails/Ruby specific
 # export FONTAWESOME_NPM_AUTH_TOKEN="FONTAWESOME_NPM_AUTH_TOKEN"
