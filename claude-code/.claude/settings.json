@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/env.php*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/docker-compose*.yml)",
+      "Read(**/config/database.yml)",
+      "Read(**/.envrc)",
+      "Read(**/terraform.tfvars)",
+      "Read(**/*.p12)",
+      "Read(**/.kube/**)",
+      "Bash(curl:*)",
+      "Bash(wget:*)"
+    ]
+  },
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "cleanupPeriodDays": 30,
+  "includeCoAuthoredBy": true
+}
+
