@@ -137,6 +137,9 @@ fi
 # Pixi completion
 eval "$(pixi completion --shell zsh)"
 
+# Latex
+export PATH="/Library/TeX/texbin:$PATH"
+
 ###############################
 # PROJECT-SPECIFIC ENV EXPORTS
 ###############################
