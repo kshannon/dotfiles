@@ -1,0 +1,5 @@
+# MacBook Air specific packages
+# Move entries here from Brewfile.common that are Air-only
+
+# Example (uncomment and move from common):
+# cask "some-mobile-app"

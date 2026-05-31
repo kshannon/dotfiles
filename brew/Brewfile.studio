@@ -1,0 +1,5 @@
+# Mac Studio specific packages
+# Move entries here from Brewfile.common that are Studio-only
+
+# Example (uncomment and move from common):
+# cask "some-heavy-app"
