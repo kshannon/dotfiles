@@ -124,6 +124,7 @@ alias brewinstall='brew bundle --file=~/dev/dotfiles/brew/Brewfile.common'
 alias dotpull='git -C ~/dev/dotfiles pull --ff-only'
 alias dotstatus='git -C ~/dev/dotfiles status'
 alias dotpush='git -C ~/dev/dotfiles push'
+alias dotfiles-doctor='~/dev/dotfiles/scripts/dotfiles-doctor.sh'
 
 #############################
 # TOOL INITIALIZATION
@@ -175,4 +176,22 @@ export EDITOR='code'
 alias py='pixi run --manifest-path ~/pixi-envs/base/pixi.toml python'
 alias ipy='pixi run --manifest-path ~/pixi-envs/base/pixi.toml ipython'
 alias jup='pixi run --manifest-path ~/pixi-envs/base/pixi.toml jupyter lab'
+
+#############################
+# DOTFILES DOCTOR STATUS
+#############################
+
+# Show drift warning on login if status file indicates issues
+_dotfiles_status_file="$HOME/.cache/dotfiles-doctor.status"
+if [[ -f "$_dotfiles_status_file" ]]; then
+    _status_line=$(cat "$_dotfiles_status_file")
+    _status_type=$(echo "$_status_line" | cut -d'|' -f2)
+    _status_msg=$(echo "$_status_line" | cut -d'|' -f3-)
+
+    if [[ "$_status_type" == "drift" ]]; then
+        echo -e "\033[0;33m[dotfiles]\033[0m $_status_msg"
+        echo -e "          Run \033[0;36mdotfiles-doctor -v\033[0m for details"
+    fi
+    unset _status_line _status_type _status_msg
+fi
 
