@@ -58,6 +58,8 @@ brew "ruby-install"
 brew "rustup"
 # Zsh prompt for Astronauts
 brew "spaceship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Utility-first CSS framework
 brew "tailwindcss"
 # User interface to the TELNET protocol
