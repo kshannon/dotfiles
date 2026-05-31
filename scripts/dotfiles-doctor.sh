@@ -66,9 +66,9 @@ fi
 # Check 3: Brew packages not in Brewfile
 #############################
 if [[ -f "$BREWFILE_COMMON" ]] && command -v brew &>/dev/null; then
-    # Formulae
+    # Formulae - keep version suffixes like @18, @14 for accurate comparison
     installed_formulae=$(brew leaves 2>/dev/null | sort)
-    brewfile_formulae=$(grep '^brew "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/brew "//;s/".*//;s/@.*//' | sort || true)
+    brewfile_formulae=$(grep '^brew "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/brew "//;s/".*//' | sort || true)
 
     extra_formulae=$(comm -23 <(echo "$installed_formulae") <(echo "$brewfile_formulae") 2>/dev/null || true)
     if [[ -n "$extra_formulae" ]]; then
@@ -80,9 +80,9 @@ if [[ -f "$BREWFILE_COMMON" ]] && command -v brew &>/dev/null; then
         fi
     fi
 
-    # Casks
+    # Casks - keep version suffixes for accurate comparison
     installed_casks=$(brew list --cask 2>/dev/null | sort)
-    brewfile_casks=$(grep '^cask "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/cask "//;s/".*//;s/@.*//' | sort || true)
+    brewfile_casks=$(grep '^cask "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/cask "//;s/".*//' | sort || true)
 
     extra_casks=$(comm -23 <(echo "$installed_casks") <(echo "$brewfile_casks") 2>/dev/null || true)
     if [[ -n "$extra_casks" ]]; then
