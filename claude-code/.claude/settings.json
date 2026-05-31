@@ -23,6 +23,7 @@
     "DISABLE_AUTOUPDATER": "1"
   },
   "cleanupPeriodDays": 30,
-  "includeCoAuthoredBy": true
+  "includeCoAuthoredBy": false,
+  "autoUpdatesChannel": "stable"
 }
 
