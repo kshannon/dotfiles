@@ -1,0 +1,103 @@
+tap "heroku/brew"
+tap "homebrew/services"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Parser generator
+brew "bison"
+# Ruby environment tool
+brew "chruby"
+# High-level C binding for ZeroMQ
+brew "czmq"
+# Small tool to convert Djvu files to PDF files
+brew "djvu2pdf"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU awk utility
+brew "gawk"
+# GNU compiler collection
+brew "gcc"
+# GNU database manager
+brew "gdbm"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Improved top (interactive process viewer)
+brew "htop"
+# Configurable static site generator
+brew "hugo"
+# Get events and tasks from the macOS calendar database
+brew "ical-buddy"
+# YAML Parser
+brew "libyaml"
+# Interactive environments for writing and running code
+brew "jupyterlab"
+# Portable Foreign Function Interface library
+brew "libffi"
+# GUI for vim, made for macOS
+brew "macvim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node@18"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Adds support for geographic objects to PostgreSQL
+brew "postgis"
+# Object-relational database system
+brew "postgresql@14", restart_service: :changed
+# Monitor data's progress through a pipe
+brew "pv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Rust toolchain installer
+brew "rustup"
+# Zsh prompt for Astronauts
+brew "spaceship"
+# Utility-first CSS framework
+brew "tailwindcss"
+# User interface to the TELNET protocol
+brew "telnet"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Pager/text based browser
+brew "w3m"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Browser for SQLite databases
+cask "db-browser-for-sqlite"
+# Utility to support moving and resizing using a modifier key and mouse drag
+cask "easy-move+resize"
+# Web browser
+cask "firefox@developer-edition"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Open-source screen recorder built with web technology
+cask "kap"
+# Minimal installer for conda specific to conda-forge
+cask "miniforge"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Screenshot measurement and annotation tool
+cask "shottr"
+# Create, edit, browse SQLite databases
+cask "sqlitestudio"
+# General-purpose text editor
+cask "textmate"
+npm "corepack"
