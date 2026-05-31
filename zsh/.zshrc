@@ -112,6 +112,20 @@ alias weather='curl wttr.in'
 alias myip='curl ifconfig.me'
 
 #############################
+# DOTFILES & BREW SYNC
+#############################
+
+# Brewfile management
+alias brewdump='brew bundle dump --describe --force --file=~/dev/dotfiles/brew/Brewfile.common && echo "Brewfile.common updated"'
+alias brewcheck='brew bundle check --verbose --file=~/dev/dotfiles/brew/Brewfile.common'
+alias brewinstall='brew bundle --file=~/dev/dotfiles/brew/Brewfile.common'
+
+# Dotfiles sync
+alias dotpull='git -C ~/dev/dotfiles pull --ff-only'
+alias dotstatus='git -C ~/dev/dotfiles status'
+alias dotpush='git -C ~/dev/dotfiles push'
+
+#############################
 # TOOL INITIALIZATION
 #############################
 
