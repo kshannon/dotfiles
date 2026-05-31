@@ -8,6 +8,7 @@
 ^/install\.sh
 ^/bootstrap\.sh
 \.DS_Store
+^/brew
 ^/docs
 ^/wiki
 ^/images
