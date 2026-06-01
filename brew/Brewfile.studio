@@ -1,5 +1,4 @@
 # Mac Studio specific packages
-# Move entries here from Brewfile.common that are Studio-only
 
-# Example (uncomment and move from common):
-# cask "some-heavy-app"
+# PostgreSQL (Studio uses @14, will migrate to @17 later)
+brew "postgresql@14", restart_service: :changed

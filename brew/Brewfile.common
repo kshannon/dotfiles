@@ -12,14 +12,14 @@ brew "chruby"
 brew "czmq"
 # Small tool to convert Djvu files to PDF files
 brew "djvu2pdf"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU awk utility
 brew "gawk"
 # GNU compiler collection
 brew "gcc"
-# GNU database manager
-brew "gdbm"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Improved top (interactive process viewer)
@@ -28,6 +28,8 @@ brew "htop"
 brew "hugo"
 # Get events and tasks from the macOS calendar database
 brew "ical-buddy"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
 # YAML Parser
 brew "libyaml"
 # Interactive environments for writing and running code
@@ -38,16 +40,11 @@ brew "libffi"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node@18"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Adds support for geographic objects to PostgreSQL
 brew "postgis"
-# Object-relational database system
-brew "postgresql@14", restart_service: :changed
+# PostgreSQL: see Brewfile.studio or Brewfile.air
 # Monitor data's progress through a pipe
 brew "pv"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Search tool like grep and The Silver Searcher
@@ -86,24 +83,24 @@ cask "alt-tab"
 cask "claude-code"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
-# Utility to support moving and resizing using a modifier key and mouse drag
-cask "easy-move+resize"
-# Web browser
-cask "firefox@developer-edition"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Open-source screen recorder built with web technology
 cask "kap"
-# Minimal installer for conda specific to conda-forge
-cask "miniforge"
+# File archiver
+cask "keka"
+# Open-source keystroke visualiser
+cask "keycastr"
+# Full TeX Live distribution with GUI applications
+cask "mactex"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Create, edit, browse SQLite databases
 cask "sqlitestudio"
+# System monitor for the menu bar
+cask "stats"
 # General-purpose text editor
 cask "textmate"
 npm "corepack"

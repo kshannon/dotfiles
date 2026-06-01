@@ -1,5 +1,4 @@
 # MacBook Air specific packages
-# Move entries here from Brewfile.common that are Air-only
 
-# Example (uncomment and move from common):
-# cask "some-mobile-app"
+# PostgreSQL (Air uses @17)
+brew "postgresql@17", restart_service: :changed

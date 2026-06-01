@@ -173,16 +173,20 @@ if [[ "$VERBOSE" == "-v" ]]; then
 
     if [[ -n "$extra_formulae_list" ]]; then
         count=$(echo "$extra_formulae_list" | wc -l | tr -d ' ')
-        print_item "🍺" "${YELLOW}$count formula(e) not in Brewfile${NC} - run brewdump"
-        echo "$extra_formulae_list" | sed 's/^/     /' | head -3
-        [[ $(echo "$extra_formulae_list" | wc -l) -gt 3 ]] && echo "     ..."
+        print_item "🍺" "${YELLOW}$count formula(e) not in Brewfile${NC}"
+        echo -e "     ${DIM}To keep: add to Brewfile.common${NC}"
+        echo -e "     ${DIM}To remove: brew uninstall <name>${NC}"
+        echo "$extra_formulae_list" | sed 's/^/     → /' | head -5
+        [[ $(echo "$extra_formulae_list" | wc -l) -gt 5 ]] && echo "     ..."
     fi
 
     if [[ -n "$extra_casks_list" ]]; then
         count=$(echo "$extra_casks_list" | wc -l | tr -d ' ')
-        print_item "📱" "${YELLOW}$count cask(s) not in Brewfile${NC} - run brewdump"
-        echo "$extra_casks_list" | sed 's/^/     /' | head -3
-        [[ $(echo "$extra_casks_list" | wc -l) -gt 3 ]] && echo "     ..."
+        print_item "📱" "${YELLOW}$count cask(s) not in Brewfile${NC}"
+        echo -e "     ${DIM}To keep: add to Brewfile.common${NC}"
+        echo -e "     ${DIM}To remove: brew uninstall --cask <name>${NC}"
+        echo "$extra_casks_list" | sed 's/^/     → /' | head -5
+        [[ $(echo "$extra_casks_list" | wc -l) -gt 5 ]] && echo "     ..."
     fi
 
     echo ""
