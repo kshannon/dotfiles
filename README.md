@@ -24,48 +24,50 @@ The bootstrap script will:
 
 ```bash
 cd ~/dev/dotfiles
-stow zsh git tmux starship claude-code pixi ssh
+stow zsh git tmux starship ghostty nvim claude-code pixi ssh
 ```
 
 ## Repository Structure
 
 ```
 ~/dev/dotfiles/
-├── zsh/                    # Stow package: shell config
-├── git/                    # Stow package: git config
-├── tmux/                   # Stow package: tmux config
-├── starship/               # Stow package: prompt config
-├── claude-code/            # Stow package: Claude Code settings
-├── pixi/                   # Stow package: pixi environments
-├── ssh/                    # Stow package: SSH config
+├── zsh/                    # Shell config (.zshrc, .zprofile, .zshenv)
+├── git/                    # Git config
+├── tmux/                   # Tmux config
+├── starship/               # Prompt config
+├── ghostty/                # Terminal config
+├── nvim/                   # Neovim config
+├── claude-code/            # Claude Code settings
+├── pixi/                   # Pixi environments
+├── ssh/                    # SSH config
 ├── brew/
 │   ├── Brewfile.common     # Shared packages (all machines)
 │   ├── Brewfile.studio     # Mac Studio specific
 │   ├── Brewfile.air        # MacBook Air specific
 │   └── MANUAL.md           # DMG-installed apps tracking
-├── scripts/
-│   ├── bootstrap.sh        # Fresh machine setup
-│   ├── dotfiles-doctor.sh  # Drift detection
-│   └── com.kyle.dotfiles-doctor.plist
-└── docs/
-    └── plans/              # Implementation plans
+└── scripts/
+    ├── bootstrap.sh        # Fresh machine setup
+    ├── dotfiles-doctor.sh  # Drift detection
+    └── com.kyle.dotfiles-doctor.plist
 ```
 
 ## Daily Workflow
 
-### Aliases
+### Commands
 
-These aliases are available after stowing `zsh/`:
+These commands are available after stowing `zsh/`:
 
-| Alias | Description |
-|-------|-------------|
+| Command | Description |
+|---------|-------------|
+| `dot` | Quick status + workflow guide |
+| `dothelp` | Full command reference |
+| `dotpull` | Pull latest dotfiles (fast-forward only) |
+| `dotpush` | Push dotfiles to remote |
+| `dotstatus` | Show dotfiles git status |
+| `dotfiles-doctor` | Run drift detection (`-v` for verbose) |
 | `brewdump` | Capture current Homebrew state to Brewfile |
 | `brewcheck` | Check what's missing from Brewfile |
 | `brewinstall` | Install packages from Brewfile |
-| `dotpull` | Pull latest dotfiles (fast-forward only) |
-| `dotstatus` | Show dotfiles git status |
-| `dotpush` | Push dotfiles to remote |
-| `dotfiles-doctor` | Run drift detection manually |
 
 ### Keeping Machines in Sync
 
@@ -86,14 +88,17 @@ stow --restow */  # Re-stow if needed
 
 ### Drift Detection
 
-A daily LaunchAgent runs `dotfiles-doctor.sh` at 9 AM and on login. If drift is detected, you'll see a warning when opening a new terminal:
+A daily LaunchAgent runs `dotfiles-doctor.sh` at 9 AM. If drift is detected, you'll see a warning when opening a new terminal:
 
 ```
-[dotfiles] 2 uncommitted changes, 3 packages not in Brewfile
-          Run dotfiles-doctor -v for details
+[dotfiles] sync needed · run dot for commands
 ```
 
-Run `dotfiles-doctor -v` for verbose output showing exactly what's out of sync.
+Run `dotfiles-doctor -v` for details:
+- Uncommitted changes
+- Commits behind/ahead of origin
+- Packages not in Brewfile (with add/remove guidance)
+- Brewfile packages not installed
 
 ## Homebrew Strategy
 
@@ -105,14 +110,15 @@ The Brewfile records what's installed - it's a snapshot, not a strict source of 
 - `brewcheck` - Shows what differs
 - `brewinstall` - Installs missing packages (doesn't remove extras)
 
-### Cask Policy
+### Homebrew vs DMG
 
-| Cask Type | Update Method | Notes |
-|-----------|---------------|-------|
-| `auto_updates: true` | In-app updater | Homebrew won't upgrade these |
-| `auto_updates: false` | `brew upgrade --cask` | Homebrew manages updates |
+| App Type | Install Method | Examples |
+|----------|----------------|----------|
+| No self-update | Homebrew cask | ghostty, kap, stats, raycast |
+| Self-updates aggressively | DMG | Arc, Firefox, Chrome, VS Code |
+| Paid/licensed | DMG | Rectangle Pro, 1Password |
 
-Most GUI apps (Raycast, Rectangle, Firefox, etc.) have `auto_updates: true` and self-update. That's fine - Homebrew is for installation and reproducibility, not necessarily updates.
+See `brew/MANUAL.md` for the full list of DMG-installed apps.
 
 ### Machine-Specific Packages
 
@@ -130,6 +136,8 @@ The bootstrap script automatically installs the matching file.
 | `git` | `.gitconfig`, `.gitignore_global` |
 | `tmux` | `.tmux.conf` |
 | `starship` | `.config/starship.toml` |
+| `ghostty` | `.config/ghostty/config` |
+| `nvim` | `.config/nvim/init.lua` |
 | `claude-code` | `.claude/settings.json` |
 | `pixi` | `pixi-envs/base/pixi.toml` |
 | `ssh` | `.ssh/config` |
