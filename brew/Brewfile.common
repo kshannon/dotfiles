@@ -34,8 +34,8 @@ brew "libyaml"
 brew "jupyterlab"
 # Portable Foreign Function Interface library
 brew "libffi"
-# GUI for vim, made for macOS
-brew "macvim"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node@18"
 # Cryptography and SSL/TLS Toolkit
@@ -56,8 +56,8 @@ brew "ripgrep"
 brew "ruby-install"
 # Rust toolchain installer
 brew "rustup"
-# Zsh prompt for Astronauts
-brew "spaceship"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Utility-first CSS framework
@@ -66,6 +66,8 @@ brew "tailwindcss"
 brew "telnet"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Extremely fast Python package installer and resolver, written in Rust
