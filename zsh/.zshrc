@@ -181,17 +181,13 @@ alias jup='pixi run --manifest-path ~/pixi-envs/base/pixi.toml jupyter lab'
 # DOTFILES DOCTOR STATUS
 #############################
 
-# Show drift warning on login if status file indicates issues
+# Simple drift indicator on login (run dotfiles-doctor -v for details)
 _dotfiles_status_file="$HOME/.cache/dotfiles-doctor.status"
 if [[ -f "$_dotfiles_status_file" ]]; then
-    _status_line=$(cat "$_dotfiles_status_file")
-    _status_type=$(echo "$_status_line" | cut -d'|' -f2)
-    _status_msg=$(echo "$_status_line" | cut -d'|' -f3-)
-
+    _status_type=$(cut -d'|' -f2 < "$_dotfiles_status_file")
     if [[ "$_status_type" == "drift" ]]; then
-        echo -e "\033[0;33m[dotfiles]\033[0m $_status_msg"
-        echo -e "          Run \033[0;36mdotfiles-doctor -v\033[0m for details"
+        echo -e "\033[0;33m[dotfiles: run dotfiles-doctor -v]\033[0m"
     fi
-    unset _status_line _status_type _status_msg
+    unset _status_type
 fi
 
