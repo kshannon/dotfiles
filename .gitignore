@@ -42,6 +42,7 @@
 # Pixi environments (not configs)
 **/.pixi/
 
-# Temporary docs (inventories, plans)
+# Temporary docs (inventories, plans, migration)
 docs/*-inventory.txt
+docs/*-plan.md
 docs/plans/
