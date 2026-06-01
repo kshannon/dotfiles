@@ -43,7 +43,7 @@ brew "node@18"
 # Adds support for geographic objects to PostgreSQL
 brew "postgis"
 # Object-relational database system
-brew "postgresql@14", restart_service: :changed
+# PostgreSQL: see Brewfile.studio or Brewfile.air
 # Monitor data's progress through a pipe
 brew "pv"
 # Persistent key-value database, with built-in net interface
