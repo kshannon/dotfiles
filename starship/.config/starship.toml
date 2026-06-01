@@ -49,7 +49,7 @@ time_format = "%H:%M"
 [username]
 show_always = true
 format = "[$user]($style)"
-style_user = "bold green"
+style_user = "bold yellow"
 style_root = "bold red"
 
 [hostname]
@@ -92,47 +92,25 @@ renamed = " »${count}"
 deleted = " ✘${count}"
 
 # =============================================================================
-# Languages (only show when detected in directory)
+# Languages - disabled (too noisy)
 # =============================================================================
 [python]
-symbol = " "
-style = "yellow"
-format = "[ $symbol$version]($style)"
-detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile", ".python-version"]
-detect_extensions = ["py"]
+disabled = true
 
 [ruby]
-symbol = " "
-style = "red"
-format = "[ $symbol$version]($style)"
-# Only shows when .ruby-version, Gemfile, etc. detected
-detect_files = [".ruby-version", "Gemfile", ".rvmrc"]
-detect_extensions = ["rb"]
-detect_variables = []
+disabled = true
 
 [nodejs]
-symbol = " "
-style = "green"
-format = "[ $symbol$version]($style)"
+disabled = true
 
 [rust]
-symbol = " "
-style = "red"
-format = "[ $symbol$version]($style)"
+disabled = true
 
 [golang]
-symbol = " "
-style = "cyan"
-format = "[ $symbol$version]($style)"
+disabled = true
 
-# =============================================================================
-# Conda/Pixi (shows active environment)
-# =============================================================================
 [conda]
-symbol = " "
-style = "green"
-format = "[ $symbol$environment]($style)"
-ignore_base = false
+disabled = true
 
 # =============================================================================
 # Command Duration

@@ -2,24 +2,7 @@
 # Loaded for LOGIN shells only
 
 clear
-
-# ------------------------------------------------------------
-# Greeting messages
-# ------------------------------------------------------------
-greeting_matrix=$'Welcome, Keil. 🐇 The terminal has been expecting you.\nInitializing caffeine levels... ☕️\nBe not afraid. The shell loves you.'
-greeting_brain=$'Welcome, Keil.🐀 🐀 What are we doing tonight?\nThe same thing we do every night.\nTrying to take over the 🌎 world!'
-
-# ------------------------------------------------------------
-# Randomly choose one theme
-# ------------------------------------------------------------
-themes=("matrix" "pinky")
-choice=$((RANDOM % 2))
-
-if [[ $choice -eq 0 ]]; then
-    echo -e "$greeting_matrix"
-else
-    echo -e "$greeting_brain"
-fi
+echo "Welcome, Keil. Be not afraid. The shell loves you."
 
 # ------------------------------------------------------------
 # Homebrew setup
