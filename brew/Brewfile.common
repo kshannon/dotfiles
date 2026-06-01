@@ -42,7 +42,8 @@ brew "neovim"
 brew "node@18"
 # Adds support for geographic objects to PostgreSQL
 brew "postgis"
-# PostgreSQL: see Brewfile.studio or Brewfile.air
+# Object-relational database system
+brew "postgresql@14", restart_service: :changed
 # Monitor data's progress through a pipe
 brew "pv"
 # Persistent key-value database, with built-in net interface
