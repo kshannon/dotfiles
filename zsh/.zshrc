@@ -115,6 +115,25 @@ alias myip='curl ifconfig.me'
 # DOTFILES & BREW SYNC
 #############################
 
+# Help command - show all dotfiles commands
+dot() {
+    echo ""
+    echo "  \033[1;33mDotfiles Commands\033[0m"
+    echo "  ─────────────────────────────────────────"
+    echo "  \033[1;36mdot\033[0m              Show this help"
+    echo "  \033[1;36mdotstatus\033[0m        Git status of dotfiles repo"
+    echo "  \033[1;36mdotpull\033[0m          Pull latest dotfiles"
+    echo "  \033[1;36mdotpush\033[0m          Push dotfiles to remote"
+    echo "  \033[1;36mdotfiles-doctor\033[0m  Check for drift (-v for details)"
+    echo ""
+    echo "  \033[1;33mBrewfile Commands\033[0m"
+    echo "  ─────────────────────────────────────────"
+    echo "  \033[1;36mbrewdump\033[0m         Capture current brew state"
+    echo "  \033[1;36mbrewcheck\033[0m        Check what's missing"
+    echo "  \033[1;36mbrewinstall\033[0m      Install from Brewfile"
+    echo ""
+}
+
 # Brewfile management
 alias brewdump='brew bundle dump --describe --force --file=~/dev/dotfiles/brew/Brewfile.common && echo "Brewfile.common updated"'
 alias brewcheck='brew bundle check --verbose --file=~/dev/dotfiles/brew/Brewfile.common'
@@ -181,12 +200,12 @@ alias jup='pixi run --manifest-path ~/pixi-envs/base/pixi.toml jupyter lab'
 # DOTFILES DOCTOR STATUS
 #############################
 
-# Simple drift indicator on login (run dotfiles-doctor -v for details)
+# Simple drift indicator on login
 _dotfiles_status_file="$HOME/.cache/dotfiles-doctor.status"
 if [[ -f "$_dotfiles_status_file" ]]; then
     _status_type=$(cut -d'|' -f2 < "$_dotfiles_status_file")
     if [[ "$_status_type" == "drift" ]]; then
-        echo -e "\033[0;33m[dotfiles: run dotfiles-doctor -v]\033[0m"
+        echo -e "\033[0;33m[dotfiles]\033[0m sync needed · run \033[0;36mdot\033[0m for commands"
     fi
     unset _status_type
 fi
