@@ -115,12 +115,36 @@ alias myip='curl ifconfig.me'
 # DOTFILES & BREW SYNC
 #############################
 
-# Help command - show all dotfiles commands
+# Quick status and workflow
 dot() {
+    echo ""
+    echo "  \033[1;33m📁 Dotfiles Status\033[0m"
+    echo "  ─────────────────────────────────────────"
+    git -C ~/dev/dotfiles status --short 2>/dev/null | head -5 | sed 's/^/  /'
+    local ahead=$(git -C ~/dev/dotfiles rev-list --count @{u}..HEAD 2>/dev/null || echo "0")
+    local behind=$(git -C ~/dev/dotfiles rev-list --count HEAD..@{u} 2>/dev/null || echo "0")
+    [[ "$ahead" -gt 0 ]] && echo "  ⇡ $ahead commit(s) to push"
+    [[ "$behind" -gt 0 ]] && echo "  ⇣ $behind commit(s) to pull"
+    echo ""
+    echo "  \033[1;33m📋 Workflow\033[0m"
+    echo "  ─────────────────────────────────────────"
+    echo "  1. \033[0;36mdotpull\033[0m          Pull latest changes"
+    echo "  2. \033[0;36mbrewinstall\033[0m      Install missing packages"
+    echo "  3. \033[0;36mstow --restow */\033[0m Refresh symlinks"
+    echo "  4. \033[0;36mbrewdump\033[0m         Capture new installs"
+    echo "  5. \033[0;36mdotpush\033[0m          Push your changes"
+    echo ""
+    echo "  Run \033[0;36mdothelp\033[0m for all commands"
+    echo ""
+}
+
+# Full command reference
+dothelp() {
     echo ""
     echo "  \033[1;33mDotfiles Commands\033[0m"
     echo "  ─────────────────────────────────────────"
-    echo "  \033[1;36mdot\033[0m              Show this help"
+    echo "  \033[1;36mdot\033[0m              Quick status + workflow"
+    echo "  \033[1;36mdothelp\033[0m          Show this command reference"
     echo "  \033[1;36mdotstatus\033[0m        Git status of dotfiles repo"
     echo "  \033[1;36mdotpull\033[0m          Pull latest dotfiles"
     echo "  \033[1;36mdotpush\033[0m          Push dotfiles to remote"
