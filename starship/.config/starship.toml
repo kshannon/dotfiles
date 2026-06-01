@@ -49,13 +49,13 @@ time_format = "%H:%M"
 [username]
 show_always = true
 format = "[$user]($style)"
-style_user = "bold yellow"
+style_user = "bold #00ffff"
 style_root = "bold red"
 
 [hostname]
 ssh_only = false
 format = "[$hostname]($style)"
-style = "bold green"
+style = "bold #00ffff"
 trim_at = "."
 # This shows "yukibot" from "yukibot.local"
 # To show "yuki-bot", set your hostname: sudo scutil --set HostName yuki-bot
@@ -66,7 +66,7 @@ trim_at = "."
 [directory]
 truncation_length = 1
 truncate_to_repo = false
-style = "bold cyan"
+style = "bold #ff79c6"
 format = "[$path]($style)[$read_only]($read_only_style)"
 
 # =============================================================================
@@ -74,11 +74,11 @@ format = "[$path]($style)[$read_only]($read_only_style)"
 # =============================================================================
 [git_branch]
 symbol = " "
-style = "bold purple"
+style = "bold cyan"
 format = "[ $symbol$branch]($style)"
 
 [git_status]
-style = "bold yellow"
+style = "bold cyan"
 format = "[$all_status$ahead_behind]($style)"
 conflicted = " "
 ahead = " ⇡${count}"
