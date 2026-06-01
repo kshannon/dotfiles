@@ -8,6 +8,15 @@ set -euo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dev/dotfiles}"
 BREWFILE_COMMON="$DOTFILES_DIR/brew/Brewfile.common"
+# Machine-specific Brewfile (studio or air)
+HOSTNAME=$(hostname -s | tr '[:upper:]' '[:lower:]')
+if [[ "$HOSTNAME" == "yukibot" ]] || [[ "$HOSTNAME" == *"studio"* ]]; then
+    BREWFILE_MACHINE="$DOTFILES_DIR/brew/Brewfile.studio"
+elif [[ "$HOSTNAME" == *"air"* ]] || [[ "$HOSTNAME" == *"macbook"* ]]; then
+    BREWFILE_MACHINE="$DOTFILES_DIR/brew/Brewfile.air"
+else
+    BREWFILE_MACHINE=""
+fi
 STATUS_FILE="$HOME/.cache/dotfiles-doctor.status"
 VERBOSE="${1:-}"
 
@@ -88,7 +97,12 @@ extra_formulae_list=""
 extra_casks_list=""
 if [[ -f "$BREWFILE_COMMON" ]] && command -v brew &>/dev/null; then
     installed_formulae=$(brew leaves 2>/dev/null | sort)
-    brewfile_formulae=$(grep '^brew "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/brew "//;s/".*//' | sort || true)
+    # Combine common + machine-specific Brewfiles
+    brewfile_formulae=$(grep '^brew "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/brew "//;s/".*//' || true)
+    if [[ -n "$BREWFILE_MACHINE" && -f "$BREWFILE_MACHINE" ]]; then
+        brewfile_formulae+=$'\n'$(grep '^brew "' "$BREWFILE_MACHINE" 2>/dev/null | sed 's/brew "//;s/".*//' || true)
+    fi
+    brewfile_formulae=$(echo "$brewfile_formulae" | sort -u)
     extra_formulae_list=$(comm -23 <(echo "$installed_formulae") <(echo "$brewfile_formulae") 2>/dev/null || true)
 
     if [[ -n "$extra_formulae_list" ]]; then
@@ -98,7 +112,12 @@ if [[ -f "$BREWFILE_COMMON" ]] && command -v brew &>/dev/null; then
     fi
 
     installed_casks=$(brew list --cask 2>/dev/null | sort)
-    brewfile_casks=$(grep '^cask "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/cask "//;s/".*//' | sort || true)
+    # Combine common + machine-specific Brewfiles for casks
+    brewfile_casks=$(grep '^cask "' "$BREWFILE_COMMON" 2>/dev/null | sed 's/cask "//;s/".*//' || true)
+    if [[ -n "$BREWFILE_MACHINE" && -f "$BREWFILE_MACHINE" ]]; then
+        brewfile_casks+=$'\n'$(grep '^cask "' "$BREWFILE_MACHINE" 2>/dev/null | sed 's/cask "//;s/".*//' || true)
+    fi
+    brewfile_casks=$(echo "$brewfile_casks" | sort -u)
     extra_casks_list=$(comm -23 <(echo "$installed_casks") <(echo "$brewfile_casks") 2>/dev/null || true)
 
     if [[ -n "$extra_casks_list" ]]; then
