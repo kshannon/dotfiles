@@ -2,3 +2,11 @@
 
 # PostgreSQL (Air uses @17)
 brew "postgresql@17", restart_service: :changed
+
+# Missing from common (should be synced)
+brew "fzf"                    # Fuzzy finder
+brew "git-delta"              # Syntax-highlighted git diffs
+brew "tree"                   # Directory tree viewer
+brew "terminal-notifier"      # macOS notifications from terminal
+
+cask "ghostty"                # GPU-accelerated terminal

@@ -15,10 +15,10 @@ foreground = #d5c4a1
 # =============================================================================
 # Font
 # =============================================================================
-font-family = "JetBrains Mono"
-font-size = 18
+# font-family = "JetBrains Mono"
 # font-family = "SF Mono"
 font-family = "Fira Code"
+font-size = 18
 
 # Adjust line height (1.0 = normal)
 # adjust-cell-height = 10%

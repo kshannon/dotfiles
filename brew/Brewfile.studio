@@ -2,3 +2,7 @@
 
 # PostgreSQL (Studio uses @14, will migrate to @17 later)
 brew "postgresql@14", restart_service: :changed
+
+# Missing from common (should be synced)
+cask "arc"                    # Arc browser
+cask "stats"                  # Menu bar system monitor
