@@ -24,7 +24,7 @@ The bootstrap script will:
 
 ```bash
 cd ~/dev/dotfiles
-stow zsh git tmux starship ghostty nvim claude-code pixi ssh
+stow zsh git tmux starship ghostty nvim claude-code pixi ssh textmate
 ```
 
 ## Repository Structure
@@ -141,6 +141,7 @@ The bootstrap script automatically installs the matching file.
 | `claude-code` | `.claude/settings.json` |
 | `pixi` | `pixi-envs/base/pixi.toml` |
 | `ssh` | `.ssh/config` |
+| `textmate` | `.tm_properties` |
 
 ### Stowing and Unstowing
 
