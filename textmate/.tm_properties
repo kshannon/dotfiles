@@ -1,0 +1,45 @@
+# TextMate 2 Global Properties
+# Docs: https://macromates.com/blog/2011/git-style-configuration/
+
+# =============================================================================
+# Global defaults
+# =============================================================================
+fontName         = "Fira Code"
+fontSize         = 16
+
+# =============================================================================
+# Markdown files - optimized for note-taking
+# =============================================================================
+[ text.html.markdown ]
+softWrap         = true
+wrapColumn       = 80
+showWrapColumn   = false
+softTabs         = true
+tabSize          = 2
+spellChecking    = true
+fontName         = "iA Writer Duo S"
+fontSize         = 18
+theme            = 71D40D9D-AE48-11D9-920A-000D93589AF6
+
+# Fallback font if iA Writer not installed
+# fontName       = "SF Pro Text"
+# fontName       = "Avenir Next"
+
+# =============================================================================
+# Plain text files - treat as markdown
+# =============================================================================
+[ *.txt ]
+fileType         = text.html.markdown
+
+[ attr.untitled ]
+fileType         = text.html.markdown
+
+# =============================================================================
+# Code files - use monospace
+# =============================================================================
+[ source ]
+fontName         = "Fira Code"
+fontSize         = 14
+softWrap         = false
+softTabs         = true
+tabSize          = 4
